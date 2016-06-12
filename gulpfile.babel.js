@@ -6,9 +6,13 @@ import nunjucks from 'gulp-nunjucks';
 import data from 'gulp-data';
 import htmlmin from 'gulp-html-minifier';
 import util from 'gulp-util';
+import uglify from 'gulp-uglify';
 import streamqueue from 'streamqueue';
 import purecssModules from './purecss-config';
 import path from 'path';
+import browserify from 'browserify';
+import source from 'vinyl-source-stream';
+import buffer from 'vinyl-buffer';
 
 const PATH_DEST = './dest';
 const FILE_NAME_CSS = 'styles.css';
@@ -35,11 +39,13 @@ function getData() {
 }
 
 gulp.task('css', compileStyles);
-gulp.task('javascript', () => {
-  gulp
-    .src('./src/javascript/index.js')
-    .pipe(gulp.dest(PATH_DEST));
-});
+gulp.task('javascript', () =>
+  browserify('./src/javascript/index.js')
+    .bundle()
+    .pipe(source(FILE_NAME_JAVASCRIPT))
+    .pipe(buffer())
+    .pipe(uglify())
+    .pipe(gulp.dest(PATH_DEST)));
 gulp.task('html', () =>
   gulp.src('./src/html/index.html')
     .pipe(data(getData()))
