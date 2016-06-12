@@ -1,0 +1,48 @@
+{
+  "name": "empatia",
+  "version": "1.0.0",
+  "description": "Bone marrow transplant promotion landing page",
+  "main": "index.html",
+  "scripts": {
+    "build": "./node_modules/gulp/bin/gulp.js",
+    "dev": "./node_modules/gulp/bin/gulp.js dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/magul/empatia.git"
+  },
+  "keywords": [
+    "empatia",
+    "bone",
+    "marro"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/magul/empatia/issues"
+  },
+  "homepage": "https://github.com/magul/empatia#readme",
+  "dependencies": {
+    "purecss": "^0.6.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.9.1",
+    "babel-eslint": "^6.0.4",
+    "babel-preset-es2015": "^6.9.0",
+    "eslint": "^2.12.0",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.8.1",
+    "eslint-plugin-jsx-a11y": "^1.4.2",
+    "eslint-plugin-react": "^5.1.1",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-data": "^1.2.1",
+    "gulp-html-minifier": "^0.1.8",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-nunjucks": "^2.2.0",
+    "gulp-sass": "^2.3.1",
+    "gulp-util": "^3.0.7",
+    "streamqueue": "^1.1.1"
+  }
+}

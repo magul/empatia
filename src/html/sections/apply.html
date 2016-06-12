@@ -1,0 +1,8 @@
+{% extends "../templates/section.html" %}
+{% from "../macros/lorem-ipsum.html" import loremIpsum %}
+
+{% block id %}apply{% endblock %}
+{% block header %}Gdzie się zgłosić{% endblock %}
+{% block content %}
+  {{ loremIpsum(30) }}
+{% endblock %}

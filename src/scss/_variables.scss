@@ -1,0 +1,11 @@
+$max-site-width: 920px;
+$site-padding: 20px;
+
+$color-primary: #474848;
+$color-secondary: #ff9000;
+
+$header-height: 80px;
+
+@mixin horizontalLine($color: lighten($color-primary, 50%)) {
+  border-bottom: 1px solid $color;
+}

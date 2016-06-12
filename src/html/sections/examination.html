@@ -1,0 +1,8 @@
+{% extends "../templates/section.html" %}
+{% from "../macros/lorem-ipsum.html" import loremIpsum %}
+
+{% block id %}examination{% endblock %}
+{% block header %}Jak wygląda badanie{% endblock %}
+{% block content %}
+  {{ loremIpsum(20) }}
+{% endblock %}

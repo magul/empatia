@@ -1,0 +1,5 @@
+{% macro loremIpsum(n = 1) %}
+  {% for i in range(0, n) -%}
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod natus dicta adipisci dolorem in, atque, inventore. Dignissimos sint at nulla consequatur. Dolor assumenda tempore laborum, voluptate porro quo exercitationem laudantium.</p>
+  {%- endfor %}
+{% endmacro %}

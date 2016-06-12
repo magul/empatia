@@ -1,0 +1,9 @@
+{% from "../macros/menu-item.html" import menuItem %}
+
+<nav class="navbar pure-menu pure-menu-horizontal">
+  <ul class="pure-menu-list">
+    {{ menuItem("story", "History Patrycji", "is-current") }}
+    {{ menuItem("examination", "Jak wygląda badanie") }}
+    {{ menuItem("apply", "Gdzie się zgłosić") }}
+  </ul>
+</nav>

@@ -1,0 +1,8 @@
+{% extends "../templates/section.html" %}
+{% from "../macros/lorem-ipsum.html" import loremIpsum %}
+
+{% block id %}story{% endblock %}
+{% block header %}Historia Patrycji{% endblock %}
+{% block content %}
+  {{ loremIpsum(10) }}
+{% endblock %}
