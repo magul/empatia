@@ -1,18 +1,37 @@
-import debounce from 'lodash/debounce';
+import throttle from 'lodash/throttle';
+import forEachRight from 'lodash/forEachRight';
 import jquery from 'jquery';
 
-export function scrollSpy({ $navSections }) {
+export function scrollSpy({ $navSections, currentSectionClass }) {
+  const $window = jquery(window);
+  const $pageSections = $navSections.map((index, el) => jquery(el.hash));
   let hangDetection = false;
-  let $pageSections = $navSections
-    .map((index, element) => jquery(element.hash));
 
-  function detectSection() {
-    let it = 0;
-
-    if (hangDetection) return;
+  function setCurrentSection(index) {
+    forEachRight($navSections, (navEl, navIndex) => {
+      jquery(navEl)
+        .parent()
+        .toggleClass(currentSectionClass, navIndex === index);
+    });
   }
 
-  jquery(window).on('scroll', debounce(detectSection, 150));
+  function detectSection() {
+    let detected = false;
+
+    if (hangDetection) return;
+
+    forEachRight($pageSections, ($element, index) => {
+      if (detected) return;
+
+      detected = $window.scrollTop() >= $element.offset().top;
+
+      if (detected) {
+        requestAnimationFrame(setCurrentSection.bind(null, index));
+      }
+    });
+  }
+
+  $window.on('scroll', throttle(detectSection, 250));
 
   return Object.freeze({
     hang: status => { hangDetection = status; },

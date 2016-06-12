@@ -6,7 +6,8 @@ const CURRENT_SECTION_CLASS = 'is-current';
 export function sectionsManager() {
   const $navSections = jquery(SECTION_ITEM_SELECTOR);
   const $scrollTarget = jquery('html, body');
-  const scrollSpyInst = scrollSpy({ $navSections });
+  const scrollSpyInst = scrollSpy({ $navSections,
+    currentSectionClass: CURRENT_SECTION_CLASS });
 
   function scrollTo(target, cb) {
     const done = () => {
@@ -24,10 +25,11 @@ export function sectionsManager() {
     $navSections
       .each((index, element) => {
         const $element = jquery(element);
+        const isCurrent = $element.is(target);
 
         $element
           .parent()
-          .toggleClass(CURRENT_SECTION_CLASS, $element.is(target));
+          .toggleClass(CURRENT_SECTION_CLASS, isCurrent);
       });
   }
 
