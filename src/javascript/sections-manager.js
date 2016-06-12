@@ -1,19 +1,27 @@
 import jquery from 'jquery';
+import { scrollSpy } from './scroll-spy';
 const SECTION_ITEM_SELECTOR = '.js-scroll-to-section';
 const CURRENT_SECTION_CLASS = 'is-current';
 
 export function sectionsManager() {
-  const $sections = jquery(SECTION_ITEM_SELECTOR);
+  const $navSections = jquery(SECTION_ITEM_SELECTOR);
   const $scrollTarget = jquery('html, body');
+  const scrollSpyInst = scrollSpy({ $navSections });
 
   function scrollTo(target, cb) {
+    const done = () => {
+      scrollSpyInst.hang(false);
+      cb();
+    };
+
+    scrollSpyInst.hang(true);
     $scrollTarget
       .stop()
-      .animate({ scrollTop: target.offsetTop }, 500, 'swing', cb);
+      .animate({ scrollTop: target.offsetTop }, 500, 'swing', done);
   }
 
   function setCurrentSection(target) {
-    $sections
+    $navSections
       .each((index, element) => {
         const $element = jquery(element);
 
@@ -32,4 +40,5 @@ export function sectionsManager() {
 
   jquery(document)
     .on('click', SECTION_ITEM_SELECTOR, showSection);
+  $scrollTarget.on('scroll', scrollSpy);
 }
