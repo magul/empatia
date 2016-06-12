@@ -20,10 +20,12 @@ export function scrollSpy({ $navSections, currentSectionClass }) {
 
     if (hangDetection) return;
 
+    const checkPoint = $window.scrollTop() + ($window.height() * 0.75);
+
     forEachRight($pageSections, ($element, index) => {
       if (detected) return;
 
-      detected = $window.scrollTop() >= $element.offset().top;
+      detected = checkPoint >= $element.offset().top;
 
       if (detected) {
         requestAnimationFrame(setCurrentSection.bind(null, index));
