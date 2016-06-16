@@ -7,16 +7,20 @@
 }
 
 body {
-  color: $color-primary;
+  color: $text-color-primary;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
 }
 
 a {
-  color: $color-primary;
+  color: $text-color-primary;
   text-decoration: none;
 
   &:hover {
     color: darken($color-secondary, 20%);
   }
+}
+
+.pure-g > *{
+  box-sizing: border-box;
 }

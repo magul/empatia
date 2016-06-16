@@ -1,0 +1,66 @@
+$banner-height: 400px;
+$banner-parenthesis-size: 220px;
+
+%banner-item {
+  padding-bottom: 30%;
+
+  @media screen and (min-width: $breakpoint-md) {
+    padding-bottom: 50%;
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+  }
+}
+
+%banner-parentheses {
+  visibility: hidden;
+  @media screen and (min-width: $breakpoint-md) {
+    font-size: $banner-parenthesis-size;
+    color: #fff;
+    visibility: visible;
+  }
+}
+
+.banner {
+  background: $color-secondary;
+  min-height: $banner-height;
+  position: relative;
+  overflow: hidden;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  &-caption {
+    @extend %banner-item;
+    
+    &:before {
+      @extend %banner-parentheses;
+      content: "{";
+    }
+
+    &:after {
+      @extend %banner-parentheses;
+      content: "}";
+    }
+    
+    padding: 3em 2em;
+    left: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  &-description {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  &-image {
+    @extend %banner-item;
+    background-size: cover;
+    background-position: center;
+    right: 0;
+    min-height: 200px;
+  }
+}

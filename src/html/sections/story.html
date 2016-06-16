@@ -2,7 +2,11 @@
 {% from "../macros/lorem-ipsum.html" import loremIpsum %}
 
 {% block id %}story{% endblock %}
-{% block header %}Historia Patrycji{% endblock %}
+{% block heading %}Historia Patrycji{% endblock %}
+{% block modifier %}section--hide-heading{% endblock %}
 {% block content %}
-  {{ loremIpsum(10) }}
+  {% include '../components/banner.html' %}
+  <div class="section-content section-content--columns">
+    {{ loremIpsum(5) }}
+  </div>
 {% endblock %}

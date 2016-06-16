@@ -1,8 +1,6 @@
 $spacing: 20px;
 
 .navbar {
-  @include horizontalLine();
-  
   &-link {
     display: inline-block;
     padding: $spacing 0;

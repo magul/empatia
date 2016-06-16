@@ -2,3 +2,4 @@ node_modules
 /index.html
 npm-debug.log
 dest
+.DS_Store

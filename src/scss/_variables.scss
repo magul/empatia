@@ -1,10 +1,17 @@
 $max-site-width: 920px;
 $site-padding: 20px;
 
-$color-primary: #474848;
-$color-secondary: #ff9000;
+$color-primary: #42b7e8;
+$color-secondary: #c5c5c5;
+
+$text-color-primary: #151515;
 
 $header-height: 80px;
+
+$breakpoint-sm: 35.5em;
+$breakpoint-md: 48em;
+$breakpoint-lg: 64em;
+$breakpoint-xl: 80em;
 
 @mixin horizontalLine($color: lighten($color-primary, 50%)) {
   border-bottom: 1px solid $color;
