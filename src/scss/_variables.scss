@@ -16,3 +16,20 @@ $breakpoint-xl: 80em;
 @mixin horizontalLine($color: lighten($color-primary, 50%)) {
   border-bottom: 1px solid $color;
 }
+
+@mixin square($side, $size, $color: #fff) {
+  $pseudoClass: if($side == "left", "before", "after");
+
+  &:#{$pseudoClass} {
+    content: "";
+    display: block;
+    width: $size;
+    height: $size;
+    background: $color;
+    position: absolute;
+    #{$side}: 0;
+    top: calc(50% - #{$size / 2});
+    transform: rotate(45deg);
+    margin-#{$side}: -($size / 2);
+  }
+}

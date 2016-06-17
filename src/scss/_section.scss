@@ -2,20 +2,23 @@
   &--hide-heading {
     .section-heading {
       height: 0;
+      overflow: hidden;
     }
   }
 
-  &-heading {
-    margin: 0;
+  &--extra-margin {
+    .section-content {
+      p {
+        @media screen and (min-width: $breakpoint-sm) {
+          padding: 0 1em;
+        }
+      }
+    }
   }
 
   &-content {
     p {
       margin-top: 0;
-
-      @media screen and (min-width: $breakpoint-sm) {
-        padding: 0 1em;
-      }
     }
 
     &--columns {

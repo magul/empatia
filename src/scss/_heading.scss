@@ -1,0 +1,14 @@
+.heading {
+  margin: 0 0 1em;
+  text-align: center;
+
+  &-content {
+    @include square("left", 30px);
+    @include square("right", 30px);
+    position: relative;
+    color: #fff;
+    background: $color-primary;
+    padding: .3em 2em;
+    display: inline-block;
+  }
+}

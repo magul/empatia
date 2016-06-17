@@ -1,5 +1,7 @@
 <section id="{% block id %}{% endblock %}" class="section {% block modifier%}{% endblock %}">
-  <h2 class="section-heading">{% block heading %}{% endblock %}</h2>
+  <h2 class="section-heading heading">
+    <span class="heading-content">{% block heading %}{% endblock %}</span>
+    </h2>
     <div class="section-content">
       {% block content %}{% endblock %}
     </div>
