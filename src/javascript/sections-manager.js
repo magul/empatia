@@ -36,7 +36,6 @@ export function sectionsManager() {
   function showSection({ originalEvent: event }) {
     const section = document.querySelector(event.target.hash);
 
-    event.preventDefault();
     scrollTo(section, setCurrentSection.bind(null, event.target));
   }
 

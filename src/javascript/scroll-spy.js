@@ -1,3 +1,5 @@
+/* global window */
+
 import throttle from 'lodash/throttle';
 import forEachRight from 'lodash/forEachRight';
 import jquery from 'jquery';
@@ -9,6 +11,11 @@ export function scrollSpy({ $navSections, currentSectionClass }) {
 
   function setCurrentSection(index) {
     forEachRight($navSections, (navEl, navIndex) => {
+
+      if (navIndex === index && window.location.hash !== navEl.hash) {
+        window.history.pushState('Object', 'Title', navEl.hash);
+      }
+
       jquery(navEl)
         .parent()
         .toggleClass(currentSectionClass, navIndex === index);
