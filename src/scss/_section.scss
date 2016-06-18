@@ -10,7 +10,7 @@
     .section-content {
       p {
         @media screen and (min-width: $breakpoint-sm) {
-          padding: 0 1em;
+          padding: 0 $columns-spacing;
         }
       }
     }

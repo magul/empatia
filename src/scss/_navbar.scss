@@ -1,10 +1,10 @@
-$spacing: 20px;
-
 .navbar {
+  padding: 0 $columns-spacing;
+
   &-link {
     display: inline-block;
-    padding: $spacing 0;
-    margin-right: $spacing;
+    padding: $columns-spacing-sm 0;
+    margin-right: $columns-spacing-sm;
   }
 
   &-item {

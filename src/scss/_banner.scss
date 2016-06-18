@@ -45,7 +45,7 @@ $banner-parenthesis-size: 220px;
       content: "}";
     }
     
-    padding: 3em 2em;
+    padding: 3em $columns-spacing;
     left: 0;
     display: flex;
     align-items: center;

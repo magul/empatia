@@ -1,0 +1,77 @@
+.howto {
+  &-test {
+    box-sizing: border-box;
+
+    &--blod {
+      @media screen and(min-width: $breakpoint-md) {
+        padding-left: $columns-spacing;
+      }
+    }
+
+    &--swab {
+      @media screen and(min-width: $breakpoint-md) {
+        padding-right: $columns-spacing;
+      }
+    }
+  }
+  &-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 $columns-spacing;
+  }
+
+  &-step {
+    position: relative;
+    margin: 0 0 $columns-spacing;
+  }
+
+  &-content {
+    padding: $columns-spacing-sm $columns-spacing $columns-spacing;
+
+    .howto-test--swab & {
+      background: $color-primary;
+
+      .howto-heading {
+        margin-left: -$columns-spacing;
+      }
+    }
+
+    .howto-test--blod & {
+      background: $color-secondary;
+
+      @media screen and (min-width: $breakpoint-md) {
+        .howto-heading {
+          margin-right: -$columns-spacing;
+          text-align: right;
+        }
+      }
+    }
+
+    &--even {
+      .howto-test--blod & {
+        @media screen and (min-width: $breakpoint-md) {
+          .howto-heading {
+            text-align: left;
+            margin-left: -$columns-spacing;
+          }
+        }
+      }
+
+      .howto-test--swab & {
+        @media screen and (min-width: $breakpoint-md) {
+          .howto-heading {
+            text-align: right;
+            margin-right: -$columns-spacing;
+          }
+        }
+      }
+    }
+  }
+
+  &-heading {
+    .heading-content {
+      padding-left: $columns-spacing;
+      padding-right: $columns-spacing;
+    }
+  }
+}

@@ -2,14 +2,16 @@
 
 .container {
   max-width: $max-site-width;
-  padding: 0 $site-padding;
+  width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 body {
   color: $text-color-primary;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
+  font-size: 16px;
 }
 
 a {

@@ -1,14 +1,31 @@
+$heading-spacing-sm: .3em;
+$heading-spacing-md: 3em;
+
 .heading {
   margin: 0 0 1em;
-  text-align: center;
+
+  &--section {
+    text-align: center;
+    font-size: 1.1em;
+  }
 
   &-content {
-    @include square("left", 30px);
-    @include square("right", 30px);
     position: relative;
-    color: #fff;
-    background: $color-primary;
-    padding: .3em 2em;
+    padding: $heading-spacing-sm 0;
     display: inline-block;
+    text-transform: uppercase;
+
+    .heading--section & {
+      @include square("left", 30px);
+      @include square("right", 30px);
+      color: #fff;
+      background: $color-primary;
+      padding: $heading-spacing-sm $heading-spacing-md;
+    }
+
+    .heading--step & {
+      font-size: 0.9rem;
+      background: #fff;
+    }
   }
 }
