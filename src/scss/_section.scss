@@ -1,4 +1,6 @@
 .section {
+  padding-bottom: $columns-spacing;
+
   &--hide-heading {
     .section-heading {
       height: 0;
@@ -17,6 +19,8 @@
   }
 
   &-content {
+    padding-top: $columns-spacing;
+
     p {
       margin-top: 0;
     }
@@ -25,8 +29,6 @@
       @media screen and (min-width: $breakpoint-sm) {
         column-count: 2;
       }
-
-      padding: 2em 0;
     }
   }
 }

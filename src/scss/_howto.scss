@@ -1,4 +1,8 @@
 .howto {
+  &-summary {
+    border: 5px solid $color-secondary;
+  }
+
   &-test {
     box-sizing: border-box;
 
@@ -15,14 +19,30 @@
     }
   }
   &-steps {
+    counter-reset: howto-step;
     list-style: none;
     padding: 0;
     margin: 0 0 $columns-spacing;
   }
 
   &-step {
+    counter-increment: howto-step;
     position: relative;
     margin: 0 0 $columns-spacing;
+
+    .heading-content {
+      padding-left: $columns-spacing;
+      padding-right: $columns-spacing;
+    }
+
+    .howto-content {
+      font-size: 0;
+
+      > span {
+        display: inline-block;
+        font-size: $font-size-base;
+      }
+    }
   }
 
   &-content {
@@ -47,9 +67,28 @@
       }
     }
 
+    &--odd {
+      .howto-test--blod & {
+        @media screen and (min-width: $breakpoint-md) {
+          @include howto-counter("after");
+          @include howto-icon("icon", "before");
+        }
+      }
+
+      .howto-test--swab & {
+        @media screen and (min-width: $breakpoint-md) {
+          @include howto-counter("before");
+          @include howto-icon("icon", "after");
+        }
+      }
+    }
+
     &--even {
       .howto-test--blod & {
         @media screen and (min-width: $breakpoint-md) {
+          @include howto-counter("before");
+          @include howto-icon("icon", "after");
+
           .howto-heading {
             text-align: left;
             margin-left: -$columns-spacing;
@@ -59,6 +98,9 @@
 
       .howto-test--swab & {
         @media screen and (min-width: $breakpoint-md) {
+          @include howto-counter("after");
+          @include howto-icon("icon", "before");
+
           .howto-heading {
             text-align: right;
             margin-right: -$columns-spacing;
@@ -68,10 +110,22 @@
     }
   }
 
-  &-heading {
-    .heading-content {
-      padding-left: $columns-spacing;
-      padding-right: $columns-spacing;
+  &-description {
+    width: 50%;
+  }
+
+  &-placeholder {
+    width: 25%;
+    color: #fff;
+    vertical-align: bottom;
+    line-height: 0;
+
+    &--before {
+      text-align: left;
+    }
+
+    &--after {
+      text-align: right;
     }
   }
 }
