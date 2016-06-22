@@ -1,0 +1,14 @@
+.logo {
+  &-holder {
+    font-size: 0;
+    white-space: nowrap;
+  }	
+
+  &-part {
+    font-size: 1.5rem;
+
+    &--em {
+      color: $color-primary;
+    }
+  }
+}

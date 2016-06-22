@@ -5,6 +5,7 @@
     .section-heading {
       height: 0;
       overflow: hidden;
+      margin: 0;
     }
   }
 
@@ -19,7 +20,7 @@
   }
 
   &-content {
-    padding-top: $columns-spacing;
+    padding-bottom: $columns-spacing;
 
     p {
       margin-top: 0;
