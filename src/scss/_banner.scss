@@ -1,5 +1,6 @@
-$banner-height: 400px;
-$banner-parenthesis-size: 220px;
+$banner-height: 500px;
+$banner-height-sm: 300px;
+$banner-parenthesis-size: 300px;
 
 %banner-item {
   padding-bottom: 30%;
@@ -15,6 +16,7 @@ $banner-parenthesis-size: 220px;
 
 %banner-parentheses {
   visibility: hidden;
+
   @media screen and (min-width: $breakpoint-md) {
     font-size: $banner-parenthesis-size;
     color: #fff;
@@ -24,9 +26,14 @@ $banner-parenthesis-size: 220px;
 
 .banner {
   background: $color-secondary;
-  min-height: $banner-height;
+  min-height: $banner-height-sm;
   position: relative;
   overflow: hidden;
+  margin-bottom: $columns-spacing;
+
+  @media screen and (min-width: $breakpoint-md) {
+    min-height: $banner-height;
+  }
 
   * {
     box-sizing: border-box;
@@ -34,6 +41,8 @@ $banner-parenthesis-size: 220px;
 
   &-caption {
     @extend %banner-item;
+
+    font-size: 1.5rem;
     
     &:before {
       @extend %banner-parentheses;
@@ -45,7 +54,7 @@ $banner-parenthesis-size: 220px;
       content: "}";
     }
     
-    padding: 3em $columns-spacing;
+    padding: $columns-spacing;
     left: 0;
     display: flex;
     align-items: center;
@@ -59,8 +68,12 @@ $banner-parenthesis-size: 220px;
   &-image {
     @extend %banner-item;
     background-size: cover;
-    background-position: center;
+    background-position: center 30%;
     right: 0;
-    min-height: 200px;
+    padding-bottom: 50%;
+
+    @media screen and (min-width: $breakpoint-md) {
+      background-position: center;
+    }
   }
 }

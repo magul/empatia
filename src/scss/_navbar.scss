@@ -41,6 +41,7 @@ $desktop-menu-breakpoint: $breakpoint-lg;
   &-link {
     padding: $columns-spacing-sm;
     display: block;
+    text-transform: uppercase;
 
     @media screen and (min-width: $desktop-menu-breakpoint) {
       display: inline-block;
@@ -64,12 +65,17 @@ $desktop-menu-breakpoint: $breakpoint-lg;
 
     @media screen and (min-width: $desktop-menu-breakpoint) {
       display: inline-block;
+
+      &:before {
+        content: "//";
+        color: $color-primary;
+      }
+
+      &:first-child:before {
+        content: none;
+      }
     }
 
-    &.is-current .navbar-link {
-      color: $color-secondary;
-    }
-    
     &:last-child {
       .navbar-link {
         margin-right: 0;
