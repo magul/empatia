@@ -8,6 +8,7 @@ const htmlmin = require('gulp-html-minifier');
 const util = require('gulp-util');
 const uglify = require('gulp-uglify');
 const toString = require('./gulp-toString');
+const connect = require('gulp-connect');
 const streamqueue = require('streamqueue');
 const purecssModules = require('./purecss-config');
 const path = require('path');
@@ -18,6 +19,8 @@ const buffer = require('vinyl-buffer');
 const PATH_DEST = './dest';
 const FILE_NAME_CSS = 'styles.css';
 const FILE_NAME_JAVASCRIPT = 'index.js';
+
+let livereloadEnabled = false;
 
 const purecss = () => gulp.src(purecssModules);
 const styles = () => gulp
@@ -38,7 +41,7 @@ function getData() {
     Promise
       .all([compileStyles()])
       .then(([css]) => {
-        resolve({css,
+        resolve({css, livereloadEnabled,
           jsPath: path.join(PATH_DEST, FILE_NAME_JAVASCRIPT),
         });
       });
@@ -51,15 +54,26 @@ gulp.task('javascript', () =>
     .pipe(source(FILE_NAME_JAVASCRIPT))
     .pipe(buffer())
     .pipe(uglify())
-    .pipe(gulp.dest(PATH_DEST)));
+    .pipe(gulp.dest(PATH_DEST))
+    .pipe(connect.reload()));
+
 gulp.task('html', () =>
   gulp.src('./src/html/index.html')
     .pipe(data(getData()))
     .pipe(nunjucks.compile())
     .on('error', e => util.log(e.message))
     .pipe(htmlmin({ collapseWhitespace: true }))
-    .pipe(gulp.dest('./')));
-gulp.task('dev', ['default'], () => {
+    .pipe(gulp.dest('./'))
+    .pipe(connect.reload()));
+gulp.task('connect', () => {
+  connect.server({
+    root: './',
+    livereload: true,
+    port: 8888
+  });
+});
+gulp.task('dev', ['default', 'connect'], () => {
+  livereloadEnabled = true;
   gulp.watch('./src/**/*', ['default']);
 });
 

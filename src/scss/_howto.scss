@@ -63,17 +63,19 @@ $arrow-bottom-size: $columns-spacing;
     }
 
     &--even {
-      .howto-test--swab & {
-        &:after {
-          left: 0;
-          right: auto;
+      @media screen and (min-width) {
+        .howto-test--swab & {
+          &:after {
+            left: 0;
+            right: auto;
+          }
         }
-      }
 
-      .howto-test--blod & {
-        &:after {
-          right: 0;
-          left: auto;
+        .howto-test--blod & {
+          &:after {
+            right: 0;
+            left: auto;
+          }
         }
       }
     }
