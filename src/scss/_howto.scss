@@ -1,3 +1,5 @@
+$arrow-bottom-size: $columns-spacing;
+
 .howto {
   &-summary {
     border: 5px solid $color-secondary;
@@ -30,6 +32,52 @@
     position: relative;
     margin: 0 0 $columns-spacing;
 
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -$arrow-bottom-size;
+      left: calc(50% - #{$arrow-bottom-size / 2});
+    }
+
+    .howto-test--swab & {
+      &:after {
+        @include arrow("bottom", $arrow-bottom-size, $color-primary);
+
+        @media screen and (min-width: $breakpoint-md) {
+          left: auto;
+          right: 0;
+          margin: 0 $columns-spacing;
+        }
+      }
+    }
+
+    .howto-test--blod & {
+      &:after {
+        @include arrow("bottom", $arrow-bottom-size, $color-secondary);
+        
+        @media screen and (min-width: $breakpoint-md) {
+          left: 0;
+          margin: 0 $columns-spacing;
+        }
+      }
+    }
+
+    &--even {
+      .howto-test--swab & {
+        &:after {
+          left: 0;
+          right: auto;
+        }
+      }
+
+      .howto-test--blod & {
+        &:after {
+          right: 0;
+          left: auto;
+        }
+      }
+    }
+
     .heading-content {
       padding-left: $columns-spacing;
       padding-right: $columns-spacing;
@@ -48,6 +96,11 @@
   &-content {
     padding: $columns-spacing-sm $columns-spacing $columns-spacing;
 
+    a {
+      text-decoration: underline;
+      word-break: break-word;
+    }
+
     .howto-test--swab & {
       background: $color-primary;
 
@@ -58,9 +111,12 @@
 
     .howto-test--blod & {
       background: $color-secondary;
+      margin-left: -$columns-spacing;
 
       @media screen and (min-width: $breakpoint-md) {
+        margin-left: 0;
         .howto-heading {
+          margin-left: 0;
           margin-right: -$columns-spacing;
           text-align: right;
         }
@@ -69,13 +125,29 @@
 
     &--odd {
       .howto-test--blod & {
+        .heading-content {
+            @include square("right", 40px, $color-secondary);
+          }
+
         @media screen and (min-width: $breakpoint-md) {
           @include howto-counter("after");
           @include howto-icon("icon", "before");
+
+          .heading-content {
+            &:after {
+              content: none;
+            }
+
+            @include square("left", 40px, $color-secondary);
+          }
         }
       }
 
       .howto-test--swab & {
+        .heading-content {
+          @include square("right", 40px, $color-primary);
+        }
+
         @media screen and (min-width: $breakpoint-md) {
           @include howto-counter("before");
           @include howto-icon("icon", "after");
@@ -85,9 +157,21 @@
 
     &--even {
       .howto-test--blod & {
+        .heading-content {
+          @include square("right", 40px, $color-secondary);
+        }
+
         @media screen and (min-width: $breakpoint-md) {
           @include howto-counter("before");
           @include howto-icon("icon", "after");
+
+          .heading-content {
+            &:after {
+              content: none;
+            }
+
+            @include square("right", 40px, $color-secondary);
+          }
 
           .howto-heading {
             text-align: left;
@@ -97,9 +181,21 @@
       }
 
       .howto-test--swab & {
+        .heading-content {
+          @include square("right", 40px, $color-primary);
+        }
+
         @media screen and (min-width: $breakpoint-md) {
           @include howto-counter("after");
           @include howto-icon("icon", "before");
+
+          .heading-content {
+            &:after {
+              content: none;
+            }
+
+            @include square("left", 40px, $color-primary);
+          }
 
           .howto-heading {
             text-align: right;

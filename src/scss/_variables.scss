@@ -24,6 +24,7 @@ $font-size-base: 16px;
 
 @mixin square($side, $size, $color: #fff) {
   $pseudoClass: if($side == "left", "before", "after");
+  padding-#{$side}: $size;
 
   &:#{$pseudoClass} {
     content: "";
@@ -49,5 +50,17 @@ $font-size-base: 16px;
 @mixin howto-icon($icon, $position) {
   .howto-placeholder--#{$position}:before {
     content: url("http://placekitten.com/100/150");
+  }
+}
+
+@mixin arrow($direction, $size, $color) {
+  width: 0; 
+  height: 0;
+
+  @if ($direction == "bottom") {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    
+    border-top: $size solid $color;
   }
 }

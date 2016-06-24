@@ -3,6 +3,7 @@ $heading-spacing-md: 3em;
 
 .heading {
   margin: 0 0 1em;
+  overflow: hidden;
 
   &--section {
     text-align: center;
@@ -16,8 +17,8 @@ $heading-spacing-md: 3em;
     text-transform: uppercase;
 
     .heading--section & {
-      @include square("left", 30px);
-      @include square("right", 30px);
+      @include square("left", 40px);
+      @include square("right", 40px);
       color: #fff;
       background: $color-primary;
       padding: $heading-spacing-sm $heading-spacing-md;
