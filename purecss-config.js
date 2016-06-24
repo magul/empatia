@@ -1,6 +1,6 @@
 const PURECSS_PATH = './node_modules/purecss/build/';
 
-export default [
+module.exports = [
   'base',
   'grids-core',
   'grids-units',
