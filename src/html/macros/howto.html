@@ -1,0 +1,14 @@
+{% from "./icon.html" import icon %}
+
+{% macro howtoStep(opts) %}
+  <li class="howto-step howto-step--{{opts.modifier}}">
+    <div class="howto-content howto-content--{{opts.modifier}}">
+      <h3 class="howto-heading heading heading--step">
+        <span class="heading-content">{{opts.title}}</span>
+      </h3>
+      {{ icon(opts.iconCounter, 'howto-icon') }}
+      <span class="howto-description">{{opts.description|safe}}</span>
+      {{ icon(opts.icon, 'howto-icon') }}
+    </div>
+  </li>
+{% endmacro %}

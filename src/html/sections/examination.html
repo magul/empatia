@@ -1,5 +1,6 @@
 {% extends "../templates/section.html" %}
-{% from "../macros/lorem-ipsum.html" import loremIpsum %}
+{% from "../macros/icon.html" import icon %}
+{% from "../macros/howto.html" import howtoStep %}
 
 {% block id %}examination{% endblock %}
 {% block heading %}Jak zostać dawcą szpiku?{% endblock %}
@@ -7,93 +8,56 @@
   <div class="howto pure-g">
     <div class="howto-test howto-test--swab pure-u-1 pure-u-md-1-2">
       <ol class="howto-steps">
+        {{howtoStep({
+          modifier: 'odd',
+          title: 'Zamów online pakiet rejestracyjny',
+          description: 'Procedura zarejestrowania się zajmuje niewiele czasu. Zamów pakiet na <a href="http://www.dkms.pl/pl/zostan-dawca" target="_blank">http://www.dkms.pl/pl/zostan-dawca</a>',
+          iconCounter: 'one',
+          icon: 'screen'
+        })}}
 
-        <li class="howto-step howto-step--odd">
-          <div class="howto-content howto-content--odd">
-            <h3 class="howto-heading heading heading--step">
-              <span class="heading-content">Zamów online pakiet rejestracyjny</span>
-            </h3>
-            <span class="howto-placeholder howto-placeholder--before"></span>
-            <span class="howto-description">
-              Procedura zarejestrowania się zajmuje niewiele czasu.
-              Zamów pakiet na <a href="http://www.dkms.pl/pl/zostan-dawca" target="_blank">http://www.dkms.pl/pl/zostan-dawca</a>
-            </span>
-            <span class="howto-placeholder howto-placeholder--after"></span>
-          </div>
-        </li>
+        {{howtoStep({
+          modifier: 'even',
+          title: 'Pobierz wymaz',
+          description: 'Po maksymalnie 2-3 tygodniach zostanie przesłany pakiet rejestracyjny zawierający pałeczki do pobrania wymazu z jamy ustnej oraz formularz do wypełnienia.',
+          iconCounter: 'two',
+          icon: 'lips'
+        })}}
 
-
-        <li class="howto-step howto-step--even">
-          <div class="howto-content howto-content--even">
-            <h3 class="howto-heading heading heading--step">
-              <span class="heading-content">Pobierz wymaz</span>
-            </h3>
-            <span class="howto-placeholder howto-placeholder--before"></span>
-            <span class="howto-description">
-              Po maksymalnie 2-3 tygodniach zostanie przesłany pakiet rejestracyjny zawierający pałeczki do pobrania wymazu z jamy ustnej oraz formularz do wypełnienia.
-            </span>
-            <span class="howto-placeholder howto-placeholder--after"></span>
-          </div>
-        </li>
-
-        <li class="howto-step howto-step--odd">
-          <div class="howto-content howto-content--odd">
-            <h3 class="howto-heading heading heading--step">
-              <span class="heading-content">Odesłanie pakietu</span>
-            </h3>
-            <span class="howto-placeholder howto-placeholder--before"></span>
-            <span class="howto-description">
-              Pałeczki wraz z deklaracją należy odesłać pocztą na adres Fundacji DKMS.
-              Z przesłanej próbki wykonywana jest typizacja antygenów zgodności tkankowej.
-            </span>
-            <span class="howto-placeholder howto-placeholder--after"></span>
-          </div>
-        </li>
-
+        {{howtoStep({
+          modifier: 'odd',
+          title: 'Odesłanie pakietu',
+          description: 'Pałeczki wraz z deklaracją należy odesłać pocztą na adres Fundacji DKMS. Z przesłanej próbki wykonywana jest typizacja antygenów zgodności tkankowej.',
+          iconCounter: 'three',
+          icon: 'letter'
+        })}}
       </ol>
     </div>
     <div class="howto-test howto-test--blod pure-u-1 pure-u-md-1-2">
       <ol class="howto-steps">
+        {{howtoStep({
+          modifier: 'odd',
+          title: 'Zgłoś się do najbliższej placówki',
+          description: 'Można zgłosić się w Regionalnym Centrum Krwiodastwa i Krwiolecznistwa w autobusie RCKiK lub podczas ekip stacjonarnych.',
+          iconCounter: 'one',
+          icon: 'hospital'
+        })}}
 
-        <li class="howto-step howto-step--odd">
-          <div class="howto-content howto-content--odd">
-            <h3 class="howto-heading heading heading--step">
-              <span class="heading-content">Zgłoś się do najbliższej placówki</span>
-            </h3>
-            <span class="howto-placeholder howto-placeholder--before"></span>
-            <span class="howto-description">
-              Można zgłosić się w Regionalnym Centrum Krwiodastwa i Krwiolecznistwa w autobusie RCKiK lub podczas ekip stacjonarnych.
-            </span>
-            <span class="howto-placeholder howto-placeholder--after"></span>
-          </div>
-        </li>
+        {{howtoStep({
+          modifier: 'even',
+          title: 'Zarejestruj się',
+          description: 'Nie trzeba wcześniej uzgadniać wizyty. Zgłaszając się należy mieć przy sobie dokument ze zdjęciem. Po zarejestrowany kandydat na dawcę kierowany jest na badania.',
+          iconCounter: 'two',
+          icon: 'file'
+        })}}
 
-
-        <li class="howto-step howto-step--even">
-          <div class="howto-content howto-content--even">
-            <h3 class="howto-heading heading heading--step">
-              <span class="heading-content">Zarejestruj się</span>
-            </h3>
-            <span class="howto-placeholder howto-placeholder--before"></span>
-            <span class="howto-description">
-              Nie trzeba wcześniej uzgadniać wizyty. Zgłaszając się należy mieć przy sobie dokument ze zdjęciem. Po zarejestrowany kandydat na dawcę kierowany jest na badania.
-            </span>
-            <span class="howto-placeholder howto-placeholder--after"></span>
-          </div>
-        </li>
-
-        <li class="howto-step howto-step--odd">
-          <div class="howto-content howto-content--odd">
-            <h3 class="howto-heading heading heading--step">
-              <span class="heading-content">Pobranie krwi</span>
-            </h3>
-            <span class="howto-placeholder howto-placeholder--before"></span>
-            <span class="howto-description">
-              Następnie pobrane zostaną dwie próbki (12 ml) krwi żylnej. Z jednej próbowki wykonane zostanie badanie zgodności tkankowej druga probówka zostaje zamrożona jako próbka archiwizacyjna.
-            </span>
-            <span class="howto-placeholder howto-placeholder--after"></span>
-          </div>
-        </li>
+        {{howtoStep({
+          modifier: 'odd',
+          title: 'Pobranie krwi',
+          description: 'Następnie pobrane zostaną dwie próbki (12 ml) krwi żylnej. Z jednej próbowki wykonane zostanie badanie zgodności tkankowej druga probówka zostaje zamrożona jako próbka archiwizacyjna.',
+          iconCounter: 'three',
+          icon: 'drop'
+        })}}
 
       </ol>
     </div>

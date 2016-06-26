@@ -20,15 +20,18 @@ $arrow-bottom-size: $columns-spacing;
       }
     }
   }
+
+  &-icon {
+    width: 25%;
+  }
+
   &-steps {
-    counter-reset: howto-step;
     list-style: none;
     padding: 0;
     margin: 0 0 $columns-spacing;
   }
 
   &-step {
-    counter-increment: howto-step;
     position: relative;
     margin: 0 0 $columns-spacing;
 
@@ -132,8 +135,6 @@ $arrow-bottom-size: $columns-spacing;
           }
 
         @media screen and (min-width: $breakpoint-md) {
-          @include howto-counter("after");
-          @include howto-icon("icon", "before");
 
           .heading-content {
             &:after {
@@ -149,11 +150,6 @@ $arrow-bottom-size: $columns-spacing;
         .heading-content {
           @include square("right", 40px, $color-primary);
         }
-
-        @media screen and (min-width: $breakpoint-md) {
-          @include howto-counter("before");
-          @include howto-icon("icon", "after");
-        }
       }
     }
 
@@ -164,9 +160,6 @@ $arrow-bottom-size: $columns-spacing;
         }
 
         @media screen and (min-width: $breakpoint-md) {
-          @include howto-counter("before");
-          @include howto-icon("icon", "after");
-
           .heading-content {
             &:after {
               content: none;
@@ -188,9 +181,6 @@ $arrow-bottom-size: $columns-spacing;
         }
 
         @media screen and (min-width: $breakpoint-md) {
-          @include howto-counter("after");
-          @include howto-icon("icon", "before");
-
           .heading-content {
             &:after {
               content: none;
@@ -210,20 +200,5 @@ $arrow-bottom-size: $columns-spacing;
 
   &-description {
     width: 50%;
-  }
-
-  &-placeholder {
-    width: 25%;
-    color: #fff;
-    vertical-align: bottom;
-    line-height: 0;
-
-    &--before {
-      text-align: left;
-    }
-
-    &--after {
-      text-align: right;
-    }
   }
 }
