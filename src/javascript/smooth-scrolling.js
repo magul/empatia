@@ -1,3 +1,4 @@
+import PubSub from 'pubsub-js';
 import jquery from 'jquery';
 import {
   NAVIGATION_TOPIC,
@@ -7,7 +8,7 @@ import {
   ANIMATION_SS_END,
 } from './events';
 
-export function smoothScrolling({ PubSub }) {
+export function smoothScrolling() {
   const element = jquery('html,body');
   const onScrollDone = () => PubSub.publish(ANIMATION_TOPIC, ANIMATION_SS_END);
 

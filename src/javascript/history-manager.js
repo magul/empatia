@@ -1,3 +1,4 @@
+import PubSub from 'pubsub-js';
 import {
   NAVIGATION_UPDATE,
   NAVIGATION_CHANGE,
@@ -11,7 +12,7 @@ const hashToString = hash => hash.replace(REGEX_HASH, '');
 const pathToHash = path => path.replace(REGEX_PATH, '#');
 const isRootPath = path => path === '/';
 
-export function historyManager({ PubSub }) {
+export function historyManager() {
   if (!isRootPath(location.pathname)) {
     PubSub.publish(NAVIGATION_TOPIC, {
       type: NAVIGATION_CHANGE,

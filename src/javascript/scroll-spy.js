@@ -1,5 +1,4 @@
-/* global window */
-
+import PubSub from 'pubsub-js';
 import throttle from 'lodash/throttle';
 import forEachRight from 'lodash/forEachRight';
 import {
@@ -14,7 +13,7 @@ const SECTIONS_SELECTOR = '.js-section';
 const CHECK_INTERVAL = 500;
 const elementToHash = element => `#${element.id}`;
 
-export function scrollSpy({ PubSub }) {
+export function scrollSpy() {
   const scrollTarget = jquery(window);
   const pageSections = jquery(SECTIONS_SELECTOR);
   let ignoreDetection = false;

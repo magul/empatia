@@ -1,11 +1,8 @@
 import jquery from 'jquery';
-import PubSub from 'pubsub-js';
 
 export default function () {
   const modules = [];
-  const publicObj = {
-    PubSub,
-  };
+  const publicObj = {};
   const invokeModule = ({ module, selector }) => {
     if (!selector) {
       module(publicObj);

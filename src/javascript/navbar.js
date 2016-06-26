@@ -1,10 +1,11 @@
+import PubSub from 'pubsub-js';
 import { NAVIGATION_CHANGE, NAVIGATION_TOPIC } from './events';
 
 const TOGGLE_SELECTOR = '.js-toggle-menu, .js-scroll-to-section';
 const SCROLL_TO_SECTION_SELECTOR = '.js-scroll-to-section';
 const OPEN_CLASS = 'is-open';
 
-export function navbar({ element, PubSub }) {
+export function navbar({ element }) {
   function toggleMenu() {
     requestAnimationFrame(() => {
       element.toggleClass(OPEN_CLASS);
