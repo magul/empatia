@@ -1,9 +1,9 @@
 .header {
-  // position: fixed;
-  // width: 100%;
+  position: fixed;
+  width: 100%;
   background: #fff;
-  position: relative;
   z-index: 1;
+  height: $header-height;
 
   &-wrapper {
   padding: 0 $columns-spacing;

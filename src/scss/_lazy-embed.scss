@@ -1,0 +1,7 @@
+.lazy-embed {
+  transition: opacity .25s ease-in-out;
+
+  &.is-loading {
+    opacity: 0;
+  }
+}

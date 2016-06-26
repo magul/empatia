@@ -1,7 +1,9 @@
 {% macro lazyEmbed(src, width = "100%", height = "480px") %}
-  <div class="lazy-embed js-lazy-embed"
-    style="widht: {{ width }}; height: {{ height  }}"
-    data-src="{{ src }}"
-    data-width="{{ width }}"
-    data-height="{{ height }}"></div>
+  <iframe
+    class="lazy-embed js-lazy-embed is-loading"
+    src="about:blank" 
+    frameborder="0" 
+    width="{{ width }}"
+    height="{{ height }}"
+    data-src="{{ src }}"></iframe>
 {% endmacro %}

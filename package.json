@@ -38,6 +38,7 @@
   "dependencies": {
     "jquery": "^3.0.0",
     "lodash": "^4.13.1",
+    "pubsub-js": "^1.5.3",
     "purecss": "^0.6.0"
   },
   "devDependencies": {

@@ -2,47 +2,46 @@
 
 import throttle from 'lodash/throttle';
 import forEachRight from 'lodash/forEachRight';
+import {
+  NAVIGATION_UPDATE,
+  NAVIGATION_TOPIC,
+  ANIMATION_TOPIC,
+  ANIMATION_SS_END,
+} from './events';
 import jquery from 'jquery';
 
-export function scrollSpy({ $navSections, currentSectionClass }) {
-  const $window = jquery(window);
-  const $pageSections = $navSections.map((index, el) => jquery(el.hash));
-  let hangDetection = false;
+const SECTIONS_SELECTOR = '.js-section';
+const CHECK_INTERVAL = 500;
+const elementToHash = element => `#${element.id}`;
 
-  function setCurrentSection(index) {
-    forEachRight($navSections, (navEl, navIndex) => {
+export function scrollSpy({ PubSub }) {
+  const scrollTarget = jquery(window);
+  const pageSections = jquery(SECTIONS_SELECTOR);
+  let ignoreDetection = false;
 
-      if (navIndex === index && window.location.hash !== navEl.hash) {
-        window.history.pushState('Object', 'Title', navEl.hash);
-      }
-
-      jquery(navEl)
-        .parent()
-        .toggleClass(currentSectionClass, navIndex === index);
-    });
-  }
+  PubSub.subscribe(ANIMATION_TOPIC, (topic, value) => {
+    ignoreDetection = value !== ANIMATION_SS_END;
+  });
 
   function detectSection() {
     let detected = false;
 
-    if (hangDetection) return;
+    const checkPoint = scrollTarget.scrollTop() + (scrollTarget.height() * 0.5);
 
-    const checkPoint = $window.scrollTop() + ($window.height() * 0.75);
+    forEachRight(pageSections, (element, index) => {
+      if (detected || ignoreDetection) return;
 
-    forEachRight($pageSections, ($element, index) => {
-      if (detected) return;
-
+      const $element = pageSections.eq(index);
       detected = checkPoint >= $element.offset().top;
 
       if (detected) {
-        requestAnimationFrame(setCurrentSection.bind(null, index));
+        PubSub.publish(NAVIGATION_TOPIC, {
+          type: NAVIGATION_UPDATE,
+          target: elementToHash(element),
+        });
       }
     });
   }
 
-  $window.on('scroll', throttle(detectSection, 250));
-
-  return Object.freeze({
-    hang: status => { hangDetection = status; },
-  });
+  scrollTarget.on('scroll', throttle(detectSection, CHECK_INTERVAL));
 }

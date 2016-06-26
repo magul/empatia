@@ -1,10 +1,13 @@
-import jquery from 'jquery';
-import { sectionsManager } from './sections-manager';
+import { scrollSpy } from './scroll-spy';
+import { smoothScrolling } from './smooth-scrolling';
+import { historyManager } from './history-manager';
 import { lazyEmbed } from './lazy-embed';
 import { navbar } from './navbar';
+import app from './app';
 
-jquery(() => {
-  sectionsManager();
-  lazyEmbed();
-  navbar({ $navbar: jquery('.js-navbar') });
-});
+app()
+  .registerModule(scrollSpy)
+  .registerModule(smoothScrolling)
+  .registerModule(lazyEmbed, '.js-lazy-embed')
+  .registerModule(navbar, '.js-navbar')
+  .registerModule(historyManager);
