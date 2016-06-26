@@ -5,24 +5,8 @@ $arrow-bottom-size: $columns-spacing;
     border: 5px solid $color-secondary;
   }
 
-  &-test {
+  &-track {
     box-sizing: border-box;
-
-    &--blod {
-      @media screen and(min-width: $breakpoint-md) {
-        padding-left: $columns-spacing;
-      }
-    }
-
-    &--swab {
-      @media screen and(min-width: $breakpoint-md) {
-        padding-right: $columns-spacing;
-      }
-    }
-  }
-
-  &-icon {
-    width: 25%;
   }
 
   &-steps {
@@ -42,58 +26,49 @@ $arrow-bottom-size: $columns-spacing;
       left: calc(50% - #{$arrow-bottom-size / 2});
     }
 
-    .howto-test--swab & {
-      &:after {
-        @include arrow("bottom", $arrow-bottom-size, $color-primary);
-
-        @media screen and (min-width: $breakpoint-md) {
-          left: auto;
-          right: 0;
-          margin: 0 $columns-spacing;
-        }
-      }
-    }
-
-    .howto-test--blod & {
-      &:after {
-        @include arrow("bottom", $arrow-bottom-size, $color-secondary);
-        
-        @media screen and (min-width: $breakpoint-md) {
-          left: 0;
-          margin: 0 $columns-spacing;
-        }
-      }
-    }
-
-    &--even {
-      @media screen and (min-width) {
-        .howto-test--swab & {
-          &:after {
-            left: 0;
-            right: auto;
-          }
-        }
-
-        .howto-test--blod & {
-          &:after {
-            right: 0;
-            left: auto;
-          }
-        }
-      }
-    }
-
     .heading-content {
       padding-left: $columns-spacing;
       padding-right: $columns-spacing;
     }
 
-    .howto-content {
-      font-size: 0;
+    @include extendTrack('one', &) {
+      &:after {
+        @include arrow("bottom", $arrow-bottom-size, $color-primary);
+      }
 
-      > span {
-        display: inline-block;
-        font-size: $font-size-base;
+      @media screen and(min-width: $breakpoint-md) {
+        margin-right: $columns-spacing;
+
+        &:after {
+          left: auto;
+          right: 0;
+          margin: 0 $columns-spacing;
+        }
+
+        &--even:after {
+          left: 0;
+          right: auto;
+        }
+      }
+    }
+
+    @include extendTrack('two', &) {
+      &:after {
+        @include arrow("bottom", $arrow-bottom-size, $color-secondary); 
+      }
+
+      @media screen and(min-width: $breakpoint-md) {
+        margin-left: $columns-spacing;
+
+        &:after {
+          left: 0;
+          margin: 0 $columns-spacing;
+        }
+
+        &--even:after {
+          right: 0;
+          left: auto;
+        }
       }
     }
   }
@@ -106,76 +81,20 @@ $arrow-bottom-size: $columns-spacing;
       word-break: break-word;
     }
 
-    .howto-test--swab & {
+    @include extendTrack('one', &) {
       background: $color-primary;
 
       .howto-heading {
         margin-left: -$columns-spacing;
       }
-    }
 
-    .howto-test--blod & {
-      background: $color-secondary;
-      margin-left: -$columns-spacing;
-
-      @media screen and (min-width: $breakpoint-md) {
-        margin-left: 0;
-        .howto-heading {
-          margin-left: 0;
-          margin-right: -$columns-spacing;
-          text-align: right;
-        }
-      }
-    }
-
-    &--odd {
-      .howto-test--blod & {
-        .heading-content {
-            @include square("right", 40px, $color-secondary);
-          }
-
-        @media screen and (min-width: $breakpoint-md) {
-
-          .heading-content {
-            &:after {
-              content: none;
-            }
-
-            @include square("left", 40px, $color-secondary);
-          }
-        }
-      }
-
-      .howto-test--swab & {
+      &--odd {
         .heading-content {
           @include square("right", 40px, $color-primary);
         }
       }
-    }
 
-    &--even {
-      .howto-test--blod & {
-        .heading-content {
-          @include square("right", 40px, $color-secondary);
-        }
-
-        @media screen and (min-width: $breakpoint-md) {
-          .heading-content {
-            &:after {
-              content: none;
-            }
-
-            @include square("right", 40px, $color-secondary);
-          }
-
-          .howto-heading {
-            text-align: left;
-            margin-left: -$columns-spacing;
-          }
-        }
-      }
-
-      .howto-test--swab & {
+      &--even {
         .heading-content {
           @include square("right", 40px, $color-primary);
         }
@@ -196,9 +115,83 @@ $arrow-bottom-size: $columns-spacing;
         }
       }
     }
+
+    @include extendTrack('two', &) {
+      background: $color-secondary;
+      margin-left: -$columns-spacing;
+
+      @media screen and (min-width: $breakpoint-md) {
+        margin-left: 0;
+        .howto-heading {
+          margin-left: 0;
+          margin-right: -$columns-spacing;
+          text-align: right;
+        }
+      }
+
+      &--odd {
+        .heading-content {
+            @include square("right", 40px, $color-secondary);
+          }
+
+        @media screen and (min-width: $breakpoint-md) {
+          .heading-content {
+            &:after {
+              content: none;
+            }
+
+            @include square("left", 40px, $color-secondary);
+          }
+        }
+      }
+
+      &--even {
+        .heading-content {
+          @include square("right", 40px, $color-secondary);
+        }
+
+        @media screen and (min-width: $breakpoint-md) {
+          .heading-content {
+            &:after {
+              content: none;
+            }
+
+            @include square("right", 40px, $color-secondary);
+          }
+
+          .howto-heading {
+            text-align: left;
+            margin-left: -$columns-spacing;
+          }
+        }
+      }
+    }
   }
 
-  &-description {
-    width: 50%;
+  &-main {
+    display: flex;
+
+
+  }
+
+  &-icon {
+    margin-left: $columns-spacing;
+    align-self: flex-start;
+
+    @include extendTrack('one', &, 'even') {
+      @media screen and (min-width: $breakpoint-md) {
+        order: -1;
+        margin-right: $columns-spacing;
+        margin-left: 0;
+      }
+    }
+
+    @include extendTrack('two', &, 'odd') {
+      @media screen and (min-width: $breakpoint-md) {
+        order: -1;
+        margin-right: $columns-spacing;
+        margin-left: 0;
+      }
+    }
   }
 }

@@ -6,14 +6,15 @@
 {% block heading %}Jak zostać dawcą szpiku?{% endblock %}
 {% block content %}
   <div class="howto pure-g">
-    <div class="howto-test howto-test--swab pure-u-1 pure-u-md-1-2">
+    <div class="howto-track howto-track--one pure-u-1 pure-u-md-1-2">
       <ol class="howto-steps">
         {{howtoStep({
           modifier: 'odd',
           title: 'Zamów online pakiet rejestracyjny',
           description: 'Procedura zarejestrowania się zajmuje niewiele czasu. Zamów pakiet na <a href="http://www.dkms.pl/pl/zostan-dawca" target="_blank">http://www.dkms.pl/pl/zostan-dawca</a>',
           iconCounter: 'one',
-          icon: 'screen'
+          icon: 'screen',
+          track: 'one'
         })}}
 
         {{howtoStep({
@@ -21,7 +22,8 @@
           title: 'Pobierz wymaz',
           description: 'Po maksymalnie 2-3 tygodniach zostanie przesłany pakiet rejestracyjny zawierający pałeczki do pobrania wymazu z jamy ustnej oraz formularz do wypełnienia.',
           iconCounter: 'two',
-          icon: 'lips'
+          icon: 'lips',
+          track: 'one'
         })}}
 
         {{howtoStep({
@@ -29,18 +31,20 @@
           title: 'Odesłanie pakietu',
           description: 'Pałeczki wraz z deklaracją należy odesłać pocztą na adres Fundacji DKMS. Z przesłanej próbki wykonywana jest typizacja antygenów zgodności tkankowej.',
           iconCounter: 'three',
-          icon: 'letter'
+          icon: 'letter',
+          track: 'one'
         })}}
       </ol>
     </div>
-    <div class="howto-test howto-test--blod pure-u-1 pure-u-md-1-2">
+    <div class="howto-track howto-track--two pure-u-1 pure-u-md-1-2">
       <ol class="howto-steps">
         {{howtoStep({
           modifier: 'odd',
           title: 'Zgłoś się do najbliższej placówki',
           description: 'Można zgłosić się w Regionalnym Centrum Krwiodastwa i Krwiolecznistwa w autobusie RCKiK lub podczas ekip stacjonarnych.',
           iconCounter: 'one',
-          icon: 'hospital'
+          icon: 'hospital',
+          track: 'two'
         })}}
 
         {{howtoStep({
@@ -48,7 +52,8 @@
           title: 'Zarejestruj się',
           description: 'Nie trzeba wcześniej uzgadniać wizyty. Zgłaszając się należy mieć przy sobie dokument ze zdjęciem. Po zarejestrowany kandydat na dawcę kierowany jest na badania.',
           iconCounter: 'two',
-          icon: 'file'
+          icon: 'file',
+          track: 'two'
         })}}
 
         {{howtoStep({
@@ -56,7 +61,8 @@
           title: 'Pobranie krwi',
           description: 'Następnie pobrane zostaną dwie próbki (12 ml) krwi żylnej. Z jednej próbowki wykonane zostanie badanie zgodności tkankowej druga probówka zostaje zamrożona jako próbka archiwizacyjna.',
           iconCounter: 'three',
-          icon: 'drop'
+          icon: 'drop',
+          track: 'two'
         })}}
 
       </ol>

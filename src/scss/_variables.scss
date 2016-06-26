@@ -47,12 +47,6 @@ $font-size-base: 16px;
   }
 }
 
-@mixin howto-icon($icon, $position) {
-  .howto-placeholder--#{$position}:before {
-    content: url("http://placekitten.com/100/150");
-  }
-}
-
 @mixin arrow($direction, $size, $color) {
   width: 0; 
   height: 0;
@@ -64,3 +58,14 @@ $font-size-base: 16px;
     border-top: $size solid $color;
   }
 }
+
+@mixin extendTrack($track, $selector, $step: false) {
+  @if $step {
+    $selector: '.howto-step--#{$step} ' + $selector;
+  }
+
+  @at-root .howto-track--#{$track} #{$selector} { 
+    @content; 
+  }
+}
+
