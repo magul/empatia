@@ -21,6 +21,8 @@
 
   &-content {
     p {
+      line-height: $text-line-height;
+      font-weight: $text-font-weight;
       margin-top: 0;
     }
 

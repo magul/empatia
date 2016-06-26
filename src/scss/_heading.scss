@@ -1,4 +1,4 @@
-$heading-spacing-sm: .3em;
+$heading-spacing-sm: .4em;
 $heading-spacing-md: 3em;
 
 .heading {
@@ -8,6 +8,7 @@ $heading-spacing-md: 3em;
   &--section {
     text-align: center;
     font-size: 1.1em;
+    font-weight: 400;
   }
 
   &-content {

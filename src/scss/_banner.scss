@@ -43,6 +43,7 @@ $banner-parenthesis-size: 300px;
     @extend %banner-item;
 
     font-size: 1.5rem;
+    line-height: $text-line-height;
     
     &:before {
       @extend %banner-parentheses;

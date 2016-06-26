@@ -75,9 +75,11 @@ $arrow-bottom-size: $columns-spacing;
 
   &-content {
     padding: $columns-spacing-sm $columns-spacing $columns-spacing;
+    font-weight: $text-font-weight;
+    line-height: $text-line-height;
 
     a {
-      text-decoration: underline;
+      color: $text-color-anchor;
       word-break: break-word;
     }
 
@@ -171,7 +173,14 @@ $arrow-bottom-size: $columns-spacing;
   &-main {
     display: flex;
 
-
+    &--summary {
+      display: block;
+      .howto-icon {
+        float: left;
+        margin-left: 0;
+        margin-right: $columns-spacing;
+      }
+    }
   }
 
   &-icon {
