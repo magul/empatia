@@ -10,6 +10,7 @@ const uglify = require('gulp-uglify');
 const toString = require('./gulp-toString');
 const connect = require('gulp-connect');
 const svgSprite = require('gulp-svg-sprite');
+const autoprefixer = require('gulp-autoprefixer');
 const streamqueue = require('streamqueue');
 const purecssModules = require('./purecss-config');
 const path = require('path');
@@ -31,7 +32,10 @@ let livereloadEnabled = false;
 const purecss = () => gulp.src(purecssModules);
 const styles = () => gulp
     .src('./src/scss/*.scss')
-    .pipe(sass());
+    .pipe(sass())
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions']
+    }));
 
 function compileStyles() {
   return new Promise((resolve) => {
