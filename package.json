@@ -36,10 +36,10 @@
   },
   "homepage": "https://github.com/magul/empatia#readme",
   "dependencies": {
-    "jquery": "^3.0.0",
     "lodash": "^4.13.1",
     "pubsub-js": "^1.5.3",
-    "purecss": "^0.6.0"
+    "purecss": "^0.6.0",
+    "scroll-to": "0.0.2"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",

@@ -1,24 +1,21 @@
 import PubSub from 'pubsub-js';
-import jquery from 'jquery';
+import scrollTo from 'scroll-to';
 import { NAVIGATION_TOPIC, NAVIGATION_CHANGE, smoothScroll } from './events';
 
+const ANIMATION_DURATION = 500;
+const ANIMATION_EASE = 'inOutQuart';
+
 export function smoothScrolling() {
-  const element = jquery('html,body');
-
-  function scrollTo(target) {
-    smoothScroll(true);
-    element
-      .stop()
-      .animate(
-        { scrollTop: target.offsetTop },
-        500,
-        'swing',
-        smoothScroll.bind(null, false));
-  }
-
   PubSub.subscribe(NAVIGATION_TOPIC, (topic, { type, target }) => {
     if (type === NAVIGATION_CHANGE) {
-      scrollTo(document.querySelector(target));
+      const scrollTarget = document.querySelector(target);
+
+      smoothScroll(true);
+      scrollTo(0, scrollTarget.offsetTop, {
+        diration: ANIMATION_DURATION,
+        ease: ANIMATION_EASE,
+      });
+      setTimeout(smoothScroll, ANIMATION_DURATION, false);
     }
   });
 }

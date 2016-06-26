@@ -1,4 +1,12 @@
-import jquery from 'jquery';
+const onReady = (callback) => {
+  setTimeout(() => {
+    if (document.readyState === 'interactive') {
+      callback();
+    } else {
+      document.addEventListener('DOMContentLoaded', callback, false);
+    }
+  }, 0);
+};
 
 export default function () {
   const modules = [];
@@ -12,7 +20,7 @@ export default function () {
     }
   };
 
-  jquery(() => { modules.forEach(invokeModule); });
+  onReady(() => modules.forEach(invokeModule));
 
   return {
     registerModule(module, selector) {
