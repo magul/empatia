@@ -1,24 +1,26 @@
-import PubSub from 'pubsub-js';
-import { NAVIGATION_CHANGE, NAVIGATION_TOPIC } from './events';
+import { navigationChange } from './events';
 
-const TOGGLE_SELECTOR = '.js-toggle-menu, .js-scroll-to-section';
-const SCROLL_TO_SECTION_SELECTOR = '.js-scroll-to-section';
 const OPEN_CLASS = 'is-open';
+const isToggleMenu = target =>
+  target.classList.contains('js-toggle-menu', 'js-scroll-to-section');
+const isMenuSection = target =>
+  target.classList.contains('js-scroll-to-section');
 
 export function navbar({ element }) {
   function toggleMenu() {
     requestAnimationFrame(() => {
-      element.toggleClass(OPEN_CLASS);
+      element.classList.toggle(OPEN_CLASS);
     });
   }
 
-  element
-    .on('click', TOGGLE_SELECTOR, toggleMenu)
-    .on('click', SCROLL_TO_SECTION_SELECTOR, (event) => {
+  function clickHandler(event) {
+    if (isToggleMenu(event.target)) {
+      toggleMenu();
+    } else if (isMenuSection(event.target)) {
       event.preventDefault();
-      PubSub.publish(NAVIGATION_TOPIC, {
-        type: NAVIGATION_CHANGE,
-        target: event.currentTarget.hash,
-      });
-    });
+      navigationChange(event.target.hash);
+    }
+  }
+
+  element.addEventListener('click', clickHandler, false);
 }

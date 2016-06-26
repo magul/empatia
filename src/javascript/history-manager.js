@@ -3,6 +3,7 @@ import {
   NAVIGATION_UPDATE,
   NAVIGATION_CHANGE,
   NAVIGATION_TOPIC,
+  navigationChange,
 } from './events';
 
 const TITLE = '';
@@ -14,10 +15,7 @@ const isRootPath = path => path === '/';
 
 export function historyManager() {
   if (!isRootPath(location.pathname)) {
-    PubSub.publish(NAVIGATION_TOPIC, {
-      type: NAVIGATION_CHANGE,
-      target: pathToHash(location.pathname),
-    });
+    navigationChange(pathToHash(location.pathname));
   }
 
   PubSub.subscribe(NAVIGATION_TOPIC, (topic, { type, target }) => {

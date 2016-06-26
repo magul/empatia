@@ -2,11 +2,23 @@ const LOADING_CLASS = 'is-loading';
 const IGNORE_MOUSE_CLASS = 'is-blurred';
 
 export function lazyEmbed({ element }) {
-  element
-    .toggleClass(IGNORE_MOUSE_CLASS, true)
-    .on('click', () => { element.toggleClass(IGNORE_MOUSE_CLASS, false); })
-    .on('mouseleave', () => { element.toggleClass(IGNORE_MOUSE_CLASS, true); })
-    .children()
-    .attr('src', element.data().src)
-    .on('load', () => { element.removeClass(LOADING_CLASS); });
+  const iframeElement = element.children[0];
+
+  function handleClick() {
+    element.classList.remove(IGNORE_MOUSE_CLASS);
+  }
+
+  function handleMouseLeave() {
+    element.classList.add(IGNORE_MOUSE_CLASS);
+  }
+
+  function handleIframeLoad() {
+    element.classList.remove(LOADING_CLASS);
+  }
+
+  element.classList.add(IGNORE_MOUSE_CLASS);
+  element.addEventListener('click', handleClick, false);
+  element.addEventListener('mouseleave', handleMouseLeave, false);
+  iframeElement.addEventListener('load', handleIframeLoad, false);
+  iframeElement.setAttribute('src', element.dataset.src);
 }
