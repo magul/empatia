@@ -26,13 +26,17 @@ const SVG_OPTIONS = {
     symbol: true
   }
 };
+const SASS_INCLUDE_PATHS = [
+  './node_modules/hamburgers/_sass/hamburgers'
+];
 
 let livereloadEnabled = false;
 
 const purecss = () => gulp.src(purecssModules);
 const styles = () => gulp
     .src('./src/scss/*.scss')
-    .pipe(sass())
+    .pipe(sass({ includePaths: SASS_INCLUDE_PATHS }))
+    .on('error', sass.logError)
     .pipe(autoprefixer({
       browsers: ['last 2 versions']
     }));

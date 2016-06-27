@@ -55,6 +55,11 @@ $desktop-menu-breakpoint: $breakpoint-lg;
     position: relative;
     z-index: 3;
 
+    &:active,
+    &:focus {
+      outline: none;
+    }
+
     @media screen and (min-width: $desktop-menu-breakpoint) {
       display: none;
     }
