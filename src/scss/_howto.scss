@@ -6,7 +6,11 @@ $arrow-bottom-size: $columns-spacing;
   }
 
   &-track {
-    box-sizing: border-box;
+    @media screen and (min-width: $breakpoint-md) {
+      display: inline-block;
+      width: 50%;
+      vertical-align: top;
+    }
   }
 
   &-steps {
