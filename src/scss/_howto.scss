@@ -124,10 +124,14 @@ $arrow-bottom-size: $columns-spacing;
 
     @include extendTrack('two', &) {
       background: $color-secondary;
-      margin-left: -$columns-spacing;
+
+      .howto-heading {
+        margin-left: -$columns-spacing;
+      }
 
       @media screen and (min-width: $breakpoint-md) {
         margin-left: 0;
+
         .howto-heading {
           margin-left: 0;
           margin-right: -$columns-spacing;

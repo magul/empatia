@@ -11,9 +11,9 @@
 
   &--extra-margin {
     .section-content {
-      p {
-        @media screen and (min-width: $breakpoint-sm) {
-          padding: 0 $columns-spacing;
+      @media screen and (min-width: $breakpoint-sm) {
+        p {
+          padding: 0 (2 * $columns-spacing);
         }
       }
     }
@@ -21,6 +21,7 @@
 
   &-content {
     p {
+      padding: 0 $columns-spacing;
       line-height: $text-line-height;
       font-weight: $text-font-weight;
       margin-top: 0;
