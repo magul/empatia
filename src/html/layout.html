@@ -3,12 +3,22 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<head>
+<head lang="pl">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Bank Empatii</title>
-  <meta name="description" content="Strona promująca rejestrację w banku dawców szpiku kostnego">
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  {# Facebook #}
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{ page.url }}" />
+  <meta property="og:description" content="{{ page.description }}" />
+  <meta property="og:locale " content="pl_PL" />
+  <meta property="og:image:url" content="{{ page.image }}" />
+  <meta property="og:image:width" content="{{ page.imageWidth }}" />
+  <meta property="og:image:height" content="{{ page.imageHeight }}" />
 
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <style>{{ css|safe }}</style>

@@ -63,8 +63,11 @@ function getData() {
     Promise
       .all([compileStyles()])
       .then(([css]) => {
-        resolve({css, livereloadEnabled,
+        resolve({
+          css,
+          livereloadEnabled,
           jsPath: path.join(PATH_DEST, FILE_NAME_JAVASCRIPT),
+          page: require('./page-data.json')
         });
       });
   });

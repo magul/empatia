@@ -16,6 +16,7 @@ $banner-parenthesis-size: 300px;
 
 %banner-parentheses {
   visibility: hidden;
+  margin-top: -35px;
 
   @media screen and (min-width: $breakpoint-md) {
     font-size: $banner-parenthesis-size;
