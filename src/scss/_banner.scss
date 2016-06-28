@@ -1,6 +1,7 @@
 $banner-height: 500px;
 $banner-height-sm: 300px;
 $banner-parenthesis-size: 300px;
+$banner-parenthesis-width: 22%;
 
 %banner-item {
   padding-bottom: 30%;
@@ -16,7 +17,10 @@ $banner-parenthesis-size: 300px;
 
 %banner-parentheses {
   visibility: hidden;
-  margin-top: -35px;
+  display: inline-block;
+  vertical-align: middle;
+  width: $banner-parenthesis-width;
+  box-sizing: border-box;
 
   @media screen and (min-width: $breakpoint-md) {
     font-size: $banner-parenthesis-size;
@@ -36,35 +40,40 @@ $banner-parenthesis-size: 300px;
     min-height: $banner-height;
   }
 
-  * {
-    box-sizing: border-box;
-  }
-
   &-caption {
     @extend %banner-item;
 
     font-size: 1.5rem;
     line-height: $text-line-height;
+    padding: $columns-spacing;
+    left: 0;
+
+    @media screen and (min-width: $breakpoint-md) {
+      padding: 100px $columns-spacing $columns-spacing;
+    }
     
     &:before {
+      $spacing: 12px;
       @extend %banner-parentheses;
       content: "{";
+      margin-left: -$spacing;
+      margin-right: $spacing;
     }
 
     &:after {
       @extend %banner-parentheses;
       content: "}";
-    }
-    
-    padding: $columns-spacing;
-    left: 0;
-    display: flex;
-    align-items: center;
+      text-align: right;
+    } 
   }
 
   &-description {
     text-align: center;
     font-weight: bold;
+    display: inline-block;
+    width: 100% - ($banner-parenthesis-width * 2);
+    vertical-align: middle;
+    margin-top: 35px;
   }
 
   &-image {
