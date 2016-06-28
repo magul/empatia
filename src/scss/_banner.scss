@@ -73,7 +73,10 @@ $banner-parenthesis-width: 22%;
     display: inline-block;
     width: 100% - ($banner-parenthesis-width * 2);
     vertical-align: middle;
-    margin-top: 35px;
+
+    @media screen and (min-width: $breakpoint-md) {
+      margin-top: 35px;
+    }
   }
 
   &-image {
