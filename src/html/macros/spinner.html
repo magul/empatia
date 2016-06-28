@@ -1,0 +1,9 @@
+{% macro spinner(class) %}
+  <div class="spinner {{ class }}">
+    <div class="sk-fading-circle">
+      {% for i in range(1, 13) -%}
+        <div class="sk-circle sk-circle{{ i }}"></div>
+      {%- endfor %}
+    </div>
+  </div>
+{% endmacro %}

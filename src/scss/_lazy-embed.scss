@@ -1,6 +1,26 @@
 .lazy-embed {
-  transition: opacity .25s ease-in-out;
   position: relative;
+
+  &.is-loading {
+    .lazy-embed__iframe {
+      opacity: 0;
+    }
+    .lazy-embed__spinner {
+      transform: scale(1);
+    }
+  }
+
+  &__spinner {
+    position: absolute;
+    width: 100%;
+    top: calc(50% - #{$spinkit-size / 2});
+    transition: transform .5s ease-in-out;
+    transform: scale(0);
+  }
+
+  &__iframe {
+    transition: opacity .5s ease-in-out;
+  }
 
   &:before {
     content: '';
@@ -16,9 +36,5 @@
         pointer-events: auto;
       }
     }
-  }
-
-  &.is-loading {
-    opacity: 0;
   }
 }

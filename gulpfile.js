@@ -27,7 +27,8 @@ const SVG_OPTIONS = {
   }
 };
 const SASS_INCLUDE_PATHS = [
-  './node_modules/hamburgers/_sass/hamburgers'
+  './node_modules/hamburgers/_sass/hamburgers',
+  './node_modules/spinkit/scss/spinners'
 ];
 
 let livereloadEnabled = false;

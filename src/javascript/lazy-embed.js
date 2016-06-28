@@ -2,7 +2,7 @@ const LOADING_CLASS = 'is-loading';
 const IGNORE_MOUSE_CLASS = 'is-blurred';
 
 export function lazyEmbed({ element }) {
-  const iframeElement = element.children[0];
+  const iframeElement = element.querySelector('iframe');
 
   function handleClick() {
     element.classList.remove(IGNORE_MOUSE_CLASS);

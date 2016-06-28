@@ -25,6 +25,8 @@ $columns-spacing-sm: ($columns-spacing / 2);
  */
 $hamburger-types: (squeeze);
 
+$spinkit-spinner-color: $color-secondary;
+
 
 @mixin horizontalLine($color: lighten($color-primary, 50%)) {
   border-bottom: 1px solid $color;

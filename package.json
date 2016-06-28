@@ -40,7 +40,8 @@
     "lodash": "^4.13.1",
     "pubsub-js": "^1.5.3",
     "purecss": "^0.6.0",
-    "scroll-to": "0.0.2"
+    "scroll-to": "0.0.2",
+    "spinkit": "^1.2.5"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
