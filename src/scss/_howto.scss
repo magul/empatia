@@ -1,4 +1,5 @@
 $arrow-bottom-size: $columns-spacing;
+$box-height: 220px;
 
 .howto {
   &-summary {
@@ -85,6 +86,10 @@ $arrow-bottom-size: $columns-spacing;
     a {
       color: $text-color-anchor;
       word-break: break-word;
+    }
+
+    @media screen and (min-width: $breakpoint-md) {
+      height: $box-height;
     }
 
     @include extendTrack('one', &) {
@@ -180,20 +185,29 @@ $arrow-bottom-size: $columns-spacing;
 
   &-main {
     display: flex;
+    align-items: center;
 
     &--summary {
       display: block;
+
       .howto-icon {
         float: left;
         margin-left: 0;
         margin-right: $columns-spacing;
+        max-width: 120px;
       }
     }
   }
 
   &-icon {
     margin-left: $columns-spacing;
+    max-width: 240px;
+    min-width: 80px;
     align-self: flex-start;
+
+    @media screen and (min-width: $breakpoint-md) {
+      align-self: center;
+    }
 
     @include extendTrack('one', &, 'even') {
       @media screen and (min-width: $breakpoint-md) {

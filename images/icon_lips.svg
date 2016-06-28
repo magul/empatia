@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="80.7px" height="54.4px" viewBox="0 0 80.7 54.4" style="enable-background:new 0 0 80.7 54.4;" xml:space="preserve">
+<style type="text/css">
+	.Drop_x0020_Shadow{fill:none;}
+	.Round_x0020_Corners_x0020_2_x0020_pt{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
+	.Live_x0020_Reflect_x0020_X{fill:none;}
+	.Bevel_x0020_Soft{fill:url(#SVGID_1_);}
+	.Dusk{fill:#FFFFFF;}
+	.Foliage_GS{fill:#FFDD00;}
+	.Pompadour_GS{fill-rule:evenodd;clip-rule:evenodd;fill:#44ADE2;}
+	
+		.st0{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#FFFFFF;stroke-width:4.2117;stroke-linejoin:round;stroke-miterlimit:22.9256;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#FFFFFF;stroke-width:4.2117;stroke-miterlimit:22.9256;}
+	.st2{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+</style>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-266" y1="-369" x2="-265.2929" y2="-368.2929">
+	<stop  offset="0" style="stop-color:#DEDFE3"/>
+	<stop  offset="0.1738" style="stop-color:#D8D9DD"/>
+	<stop  offset="0.352" style="stop-color:#C9CACD"/>
+	<stop  offset="0.5323" style="stop-color:#B4B5B8"/>
+	<stop  offset="0.7139" style="stop-color:#989A9C"/>
+	<stop  offset="0.8949" style="stop-color:#797C7E"/>
+	<stop  offset="1" style="stop-color:#656B6C"/>
+</linearGradient>
+<g id="XMLID_891_">
+	<path id="XMLID_894_" class="st0" d="M12.6,23.8c2.1,0,4.6-1.1,6.4-1.8c4.3-1.8,6.2-3.6,11.7-3.6c3.2,0,7.1,4.1,9.8,3.7
+		c1.7-0.3,3.5-1.3,4.9-2c3.8-1.9,6.8-2.3,10.9-0.7c3.3,1.3,8.9,4.4,12.2,4.4c-0.4,0.3-2.1,0.8-3.2,1.4c-2.8,1.4-6.2,3.6-9,5
+		c-4,2-9.4,4.6-14.2,4.6c-3.8,0-6.6-0.2-10.2-1.6c-7.8-3.1-9.2-4.7-15.9-8c-0.6-0.3-1-0.6-1.6-0.8c-0.3-0.1-0.5-0.2-0.9-0.3
+		L12.6,23.8L12.6,23.8z M2.1,22.9c0.6,2.6,4,9.3,5.2,11.5c1.8,3.2,2.7,4.3,4.8,6.7l2.7,2.7c3,2.7,6.6,4.7,10.7,6.1
+		c9.4,3.2,20.1,3.1,29.4,0c2-0.7,4.2-1.6,5.8-2.6l3.8-2.5c0.2-0.2,0.3-0.3,0.6-0.5c1.9-1.6,3.2-2.9,4.7-4.8c3.4-4.3,6.3-9.9,8.2-15
+		c0.2-0.5,0.4-1.1,0.6-1.7l-5.5-6.5C68,10.6,59,2.1,51,2.1c-2.9,0-6.6,1.3-8.6,2.9c-0.4,0.3-0.7,0.5-1.1,0.9c-0.4,0.4-0.5,0.7-0.9,1
+		c-0.6-0.4-0.9-1.6-4.3-3.3C30.7,1,25.4,2.2,20.6,5.1c-2.8,1.7-5.3,3.7-7.7,5.9c-0.3,0.3-0.5,0.5-0.7,0.7l-3,3
+		c-0.3,0.3-0.4,0.5-0.7,0.8l-2.2,2.4c-0.3,0.4-0.3,0.4-0.7,0.8L2.1,22.9z"/>
+	
+		<ellipse id="XMLID_893_" transform="matrix(-0.6876 -0.7261 0.7261 -0.6876 60.3804 88.8708)" class="st1" cx="49.3" cy="31.4" rx="9.3" ry="6.4"/>
+	<path id="XMLID_892_" class="st2" d="M55.7,35.1L70,50.2c0.8,0.8,0.8,2.2-0.1,3c-0.8,0.8-2.2,0.8-3-0.1L52.6,38L55.7,35.1z"/>
+</g>
+</svg>

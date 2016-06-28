@@ -1,5 +1,7 @@
 {% macro icon(name, class = "") %}
-  <span class="icon-{{name}} {{ class }}">
-    <img class="icon-image" src="./images/icon_{{name}}.png" />
+  <span class="icon icon--{{name}} {{ class }}">
+    <svg class="icon__image" viewBox="0 0 100 100">
+       <use xlink:href="#icon_{{name}}"></use>
+    </svg>
   </span>
 {% endmacro %}

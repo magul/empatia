@@ -61,10 +61,14 @@ function compileSvg() {
 function getData() {
   return new Promise((resolve) => {
     Promise
-      .all([compileStyles()])
-      .then(([css]) => {
+      .all([
+        compileStyles(),
+        compileSvg()
+      ])
+      .then(([css, svg]) => {
         resolve({
           css,
+          svg,
           livereloadEnabled,
           jsPath: path.join(PATH_DEST, FILE_NAME_JAVASCRIPT),
           page: require('./page-data.json')
