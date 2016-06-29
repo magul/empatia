@@ -71,7 +71,7 @@ function getData() {
           css,
           svg,
           livereloadEnabled,
-          jsPath: path.join(PATH_DEST, FILE_NAME_JAVASCRIPT),
+          jsPath: `${path.join(PATH_DEST, FILE_NAME_JAVASCRIPT)}?d=${Date.now()}`,
           page: require('./page-data.json')
         });
       });
