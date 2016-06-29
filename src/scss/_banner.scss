@@ -53,11 +53,8 @@ $banner-parenthesis-width: 22%;
     }
     
     &:before {
-      $spacing: 12px;
       @extend %banner-parentheses;
       content: "{";
-      margin-left: -$spacing;
-      margin-right: $spacing;
     }
 
     &:after {
@@ -71,11 +68,11 @@ $banner-parenthesis-width: 22%;
     text-align: center;
     font-weight: bold;
     display: inline-block;
-    width: 100% - ($banner-parenthesis-width * 2);
     vertical-align: middle;
 
     @media screen and (min-width: $breakpoint-md) {
       margin-top: 35px;
+      width: 100% - ($banner-parenthesis-width * 2);
     }
   }
 
