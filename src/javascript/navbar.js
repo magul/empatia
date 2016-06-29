@@ -1,4 +1,5 @@
-import { navigationChange } from './events';
+import PubSub from 'pubsub-js';
+import { navigationChange, ANIMATION_TOPIC, ANIMATION_SS_END } from './events';
 
 const OPEN_CLASS = 'is-open';
 const HAMBURGER_ACTIVE_CLASS = 'is-active';
@@ -10,11 +11,13 @@ const isMenuSection = target =>
 
 export function navbar({ element }) {
   const hamburger = element.querySelector('.js-hamburger');
+  let isActive = false;
 
   function toggleMenu() {
     requestAnimationFrame(() => {
       hamburger.classList.toggle(HAMBURGER_ACTIVE_CLASS);
       element.classList.toggle(OPEN_CLASS);
+      isActive = hamburger.classList.contains(HAMBURGER_ACTIVE_CLASS);
     });
   }
 
@@ -26,6 +29,12 @@ export function navbar({ element }) {
       navigationChange(event.target.hash);
     }
   }
+
+  PubSub.subscribe(ANIMATION_TOPIC, (topic, { type }) => {
+    if (isActive && type === ANIMATION_SS_END) {
+      toggleMenu();
+    }
+  });
 
   element.addEventListener('click', clickHandler, false);
 }
