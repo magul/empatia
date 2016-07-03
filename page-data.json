@@ -1,8 +1,11 @@
 {
   "title": "Bank Empatii",
-  "description": "Strona promująca rejestrację w banku dawców szpiku kostnego",
+  "description": "Strona propaguje ideę honorowego dawstwa szpiku",
   "url": "http://bankempatii.pl",
   "image": "http://bankempatii.pl/images/patrycja.jpg",
   "imageWidth": "919",
-  "imageHeight": "765"
+  "imageHeight": "765",
+  "facebookPage": "bankempatii",
+  "twitterPage": "BankEmpatii",
+  "twitterCreator": "tomekmagulski"
 }
