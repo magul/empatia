@@ -15,6 +15,9 @@ export function smoothScrolling() {
   PubSub.subscribe(NAVIGATION_TOPIC, (topic, { type, target }) => {
     if (type === NAVIGATION_CHANGE) {
       const scrollTarget = document.querySelector(target);
+
+      if (!scrollTarget) return;
+
       const animation = scrollTo(0, scrollTarget.offsetTop, animationOptions);
       const cancelCallback = () => { animation.stop(); };
       const onAnimationEnd = () => {
