@@ -27,6 +27,6 @@ a {
   box-sizing: border-box;
 }
 
-.main {
+.main, .footer {
   transform: translateY($header-height);
 }

@@ -1,0 +1,18 @@
+{% from "../macros/icon.html" import icon %}
+{% set blockName = 'social-share' %}
+{% set nativePopupTrigger = 'js-native-popup' %}
+
+<div class="{{ blockName }}">
+  <ul class="{{ blockName }}__list">
+    <li class="{{ blockName }}__network {{ blockName }}__network--facebook">
+      <a href="https://www.facebook.com/dialog/feed?app_id={{ page.facebookPage }}&display=popup&link={{ page.url }}&caption={{ page.socialShareDescription }}" alt="Udostępnij na Facebooku" target="_blank" class="{{ blockName }}__link {{ nativePopupTrigger }}">
+        {{ icon('facebook', 'social-share__icon') }}
+      </a>
+    </li>
+    <li class="{{ blockName }}__network {{ blockName }}__network--twitter">
+      <a href="https://twitter.com/intent/tweet?text={{ page.socialShareDescription }}&url={{ page.url }}&hashtags=bonemarrow,leukemia,bankempatii&via={{ page.twitterPage }}" alt="Podziel się linkiem z osobami, które Cię obserwują" target="_blank" class="{{ blockName }}__link {{ nativePopupTrigger }}">
+        {{ icon('twitter', 'social-share__icon') }}
+      </a>
+    </li>
+  </ul>
+</div>
